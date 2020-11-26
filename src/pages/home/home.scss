@@ -1,0 +1,5 @@
+@import '../../assets/utils/styling/mixins.scss';
+
+.home {
+    @include setDimensions(100%, 100%);
+}
