@@ -1,0 +1,57 @@
+@import '../../../assets/utils/styling/mixins.scss';
+@import '../../../assets/utils/styling/variables.scss';
+
+.game-card {
+    background-color: #FFF;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+
+    &__header {
+        position: relative;
+        background-color: #F76A6A;
+        height: 70%;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        border: 10px solid #000;
+        @include flexbox(column, center);
+
+        &__logo {
+            width: 150px;
+        }
+
+        &__ball {
+            position: absolute;
+            background-color: #FFF;
+            border: 10px solid #000;
+            bottom: -40px;
+            left: 50%;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            @include flexbox(column, center, center);
+            @include setDimensions(80px, 80px);
+
+            &__inner {
+                border: 4px solid #000;
+                border-radius: 50%;
+                @include setDimensions(40px, 40px);
+            }
+        }
+    }
+
+    &__body {
+        height: 30%;
+        @include flexbox(column, center, center);
+
+        &__title {
+            @include setTextAttributes($fontBold, 18px, #000);
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}

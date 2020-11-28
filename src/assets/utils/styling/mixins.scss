@@ -1,4 +1,22 @@
+@mixin flexbox($direction: column, $align: flex-start, $justify: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
 @mixin setDimensions($width, $height) {
     width: $width;
     height: $height;
+}
+
+@mixin setLinearGradient($direction, $from, $to) {
+    background: linear-gradient($direction, $from, $to);
+    background: -webkit-linear-gradient(legacy-direction($direction), $from, $to);
+}
+
+@mixin setTextAttributes($fontFamily, $size, $color) {
+    font-family: $fontFamily;
+    font-size: $size;
+    color: $color
 }

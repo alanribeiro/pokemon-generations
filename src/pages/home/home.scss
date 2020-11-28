@@ -1,5 +1,36 @@
 @import '../../assets/utils/styling/mixins.scss';
+@import '../../assets/utils/styling/variables.scss';
 
 .home {
-    @include setDimensions(100%, 100%);
+    width: 100%;
+    min-height: 100vh;
+    @include setLinearGradient(to bottom, $gradientFrom, $gradientTo);
+
+    &__logo-container {
+        @include flexbox(column, center);
+        padding: 20px 0px;
+
+        &__logo {
+            width: 300px;
+        }
+    }
+
+    &__title-container {
+        margin: 20px 0px;
+        @include flexbox(column, center);
+
+        &__title {
+            text-shadow: 3px 3px #4573E9;
+            @include setTextAttributes($fontBold, 32px, #F8D423);
+        }
+    }
+
+    &__game-cards-container {
+        width: 85%;
+        margin: auto;
+        padding: 40px 0px;
+        display: grid;
+        grid-gap: 40px;
+        grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+    }
 }
