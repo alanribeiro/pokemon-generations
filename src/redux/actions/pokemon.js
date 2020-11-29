@@ -98,4 +98,4 @@ export const setFilteredPokemons = (filtered) => async (dispatch) => {
         type: pokemonActionTypes.SET_FILTERED_POKEMONS,
         payload: filtered,
     });
-}
+};
