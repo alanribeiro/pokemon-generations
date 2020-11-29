@@ -25,7 +25,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ### `yarn lint`
 
-To check all .js files in order to find syntax problems guided by Airbnb Linter.\
+To check all .js files in order to find syntax problems guided by Airbnb Linter.
 
 This script only shows syntax problems, if you want to fix it run `yarn lint --fix` or fix by your hands.\
 You can also modify ESLint rules by making edits in `.eslintrc.js`, feel free to disable or modify any rule you want.
