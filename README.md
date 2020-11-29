@@ -4,7 +4,7 @@ A site made with react.js to show pokemon games generations and its further deta
 
 ## DEMO
 
-Check the [DEMO][https://pokemon-challenges.herokuapp.com/] deployed in [HEROKU][https://www.heroku.com/].
+Check the [DEMO](https://pokemon-challenges.herokuapp.com/) deployed in [HEROKU](https://www.heroku.com/).
 
 ## About this Project
 
