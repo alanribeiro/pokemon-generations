@@ -92,3 +92,10 @@ export const selectGameGeneration = (game) => async (dispatch) => {
     });
     localStorage.setItem('gameSelected', JSON.stringify(game));
 };
+
+export const setFilteredPokemons = (filtered) => async (dispatch) => {
+    dispatch({
+        type: pokemonActionTypes.SET_FILTERED_POKEMONS,
+        payload: filtered,
+    });
+}

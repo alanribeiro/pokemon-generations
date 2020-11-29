@@ -1,0 +1,15 @@
+@import '../../../assets/utils/styling/mixins.scss';
+@import '../../../assets/utils/styling/variables.scss';
+
+.search {
+    border: none;
+    outline: none;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 0px 10px;
+    @include setDimensions(100%, 40px);
+    @include setTextAttributes($fontLight, 14px, $pokemonRed);
+    @include mediaQuery('min', 'md') {
+        font-size: 22px;
+    }
+}

@@ -8,11 +8,13 @@ import DetailCard from '../../components/cards/detail/detail';
 import ErrorMessage from '../../components/error/error';
 import Loader from '../../components/loader/loader';
 import PokemonCard from '../../components/cards/pokemon/pokemon';
+import Search from '../../components/inputs/search/search';
 
 export default function GameDetails() {
     const [loading, setLoading] = useState(true);
     const gameSelected = useSelector((state) => state.PokemonReducer.gameSelected);
     const gameSelectedData = useSelector((state) => state.PokemonReducer.gameSelectedData);
+    const filteredPokemons = useSelector((state) => state.PokemonReducer.filteredPokemons);
     const fetchError = useSelector((state) => state.PokemonReducer.fetchError);
     const { context, message } = fetchError;
     const dispatch = useDispatch();
@@ -46,6 +48,7 @@ export default function GameDetails() {
                 types,
                 version_groups: versions,
             } = gameSelectedData;
+            const resultSpecies = filteredPokemons.length > 0 ? filteredPokemons : species;
             return (
                 <main className="game-details">
                     <div className="game-details__header">
@@ -60,10 +63,13 @@ export default function GameDetails() {
                     </div>
                     <div className="game-details__pokemon-list">
                         <div className="game-details__pokemon-list__title-container">
-                            <h1 className="game-details__pokemon-list__title-container__title">{ `Lista de Pokémons (${species.length})` }</h1>
+                            <h1 className="game-details__pokemon-list__title-container__title">{ `Lista de Pokémons (${resultSpecies.length})` }</h1>
+                        </div>
+                        <div className="game-details__pokemon-list__search-container">
+                            <Search />
                         </div>
                         <div className="game-details__pokemon-list__content">
-                            { species.map((specie) => {
+                            { resultSpecies.map((specie) => {
                                 if (specie) {
                                     return (<PokemonCard pokemon={ specie } />);
                                 }

@@ -5,6 +5,7 @@ const INITIAL_STATE = {
         context: '',
         message: '',
     },
+    filteredPokemons: [],
     gameSelected: null,
     gameSelectedData: null,
     games: null,
@@ -30,6 +31,9 @@ export default (state = INITIAL_STATE, action) => {
 
         case pokemonActionTypes.SELECT_GAME_GENERATION:
             return { ...state, gameSelected: payload };
+
+        case pokemonActionTypes.SET_FILTERED_POKEMONS:
+            return { ...state, filteredPokemons: payload };
 
         default:
             break;
