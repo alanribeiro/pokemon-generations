@@ -1,15 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { pokemonRef } from '../../../assets/utils/references/images';
+import { selectGameGeneration } from '../../../redux/actions/pokemon';
 import './game.scss';
 
 function GameCard(props) {
-    const { title } = props;
-    const [generation, number] = title.split('-');
+    const { game } = props;
+    const { name, url } = game;
+    const [generation, number] = name.split('-');
     const resultTitle = `${generation} ${number}`;
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const redirectToDetails = (gameSelected) => {
+        dispatch(selectGameGeneration(gameSelected));
+        history.push('/gameDetails');
+    };
 
     return (
-        <main className="game-card">
+        <main className="game-card" onClick={ () => redirectToDetails({ name: resultTitle, url }) }>
             <div className="game-card__header">
                 <img className="game-card__header__logo" src={ pokemonRef } alt="Pokemon Logo" loading="lazy" />
                 <div className="game-card__header__ball">
@@ -24,11 +35,11 @@ function GameCard(props) {
 }
 
 GameCard.defaultProps = {
-    title: '',
+    game: {},
 };
 
 GameCard.propTypes = {
-    title: PropTypes.string,
+    game: PropTypes.objectOf(PropTypes.object),
 };
 
 export default GameCard;

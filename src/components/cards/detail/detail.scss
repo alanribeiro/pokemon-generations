@@ -1,0 +1,35 @@
+@import '../../../assets/utils/styling/mixins.scss';
+@import '../../../assets/utils/styling/variables.scss';
+
+.detail-card {
+    background-color: #FFF;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &__header {
+        height: 60%;
+        background-color: $pokemonRed;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        @include flexbox(column, center, center);
+
+        &__image {
+            width: 30px;
+            margin-bottom: 10px;
+        }
+
+        &__title {
+            @include setTextAttributes($fontRegular, 16px, #FFF);
+        }
+    }
+
+    &__body {
+        height: 40%;
+        @include flexbox(column, center, center);
+
+        &__data {
+            @include setTextAttributes($fontBold, 22px, $pokemonRed);
+        }
+    }
+}

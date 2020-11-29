@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import './routes.scss';
 
+import GameDetails from '../pages/gameDetails/gameDetails';
 import Home from '../pages/home/home';
 
 export default function Routes() {
@@ -15,6 +16,7 @@ export default function Routes() {
                 <Switch>
                     <Route exact path="/" component={ Home } />
                     <Route exact path="/home" component={ Home } />
+                    <Route exact path="/gameDetails" component={ GameDetails } />
                 </Switch>
             </Router>
         </main>

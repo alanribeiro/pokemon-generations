@@ -11,12 +11,12 @@
 
     &__header {
         position: relative;
-        background-color: #F76A6A;
+        background-color: $pokemonRed;
         height: 70%;
         border-bottom-left-radius: 30px;
         border-bottom-right-radius: 30px;
         border: 10px solid #000;
-        @include flexbox(column, center);
+        @include flexbox(column, center, center);
 
         &__logo {
             width: 150px;

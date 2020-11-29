@@ -20,8 +20,8 @@
         @include flexbox(column, center);
 
         &__title {
-            text-shadow: 3px 3px #4573E9;
-            @include setTextAttributes($fontBold, 32px, #F8D423);
+            text-shadow: 3px 3px $pokemonBlue;
+            @include setTextAttributes($fontBold, 32px, $pokemonYellow);
         }
     }
 

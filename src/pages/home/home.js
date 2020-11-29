@@ -12,7 +12,7 @@ export default function Home() {
 
     useEffect(() => {
         dispatch(fetchGamesGenerations());
-    });
+    }, []);
 
     if (games !== null) {
         return (
@@ -24,7 +24,7 @@ export default function Home() {
                     <h1 className="home__title-container__title">Selecione uma geração de jogos Pokémon</h1>
                 </div>
                 <div className="home__game-cards-container">
-                    { games.length > 0 ? games.map((game) => <GameCard title={ game.name } />) : null }
+                    { games.length > 0 ? games.map((game) => <GameCard game={ game } />) : null }
                 </div>
             </main>
         );
