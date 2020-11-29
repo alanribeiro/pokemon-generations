@@ -29,3 +29,7 @@ To check all .js files in order to find syntax problems guided by Airbnb Linter.
 
 This script only shows syntax problems, if you want to fix it run `yarn lint --fix` or fix by your hands.\
 You can also modify ESLint rules by making edits in `.eslintrc.js`, feel free to disable or modify any rule you want.
+
+## GIT HOOKS
+
+This project is configured with pre-commit hook (using husky). Any commit made in this project to be successful must pass ESLint verification.
