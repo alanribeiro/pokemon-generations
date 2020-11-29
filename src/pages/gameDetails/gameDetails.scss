@@ -6,6 +6,13 @@
     min-height: 100vh;
     @include setLinearGradient(to bottom, $gradientFrom, $gradientTo);
 
+    &__header, &__information, &__pokemon-list {
+        -webkit-animation: display 1s  linear;
+        -moz-animation: display 1s  linear;
+        -o-animation: display 1s  linear;
+        animation: display 1s  linear;
+    }
+
     &__header {
         @include flexbox(column, center, center);
 
@@ -47,6 +54,15 @@
             display: grid;
             grid-gap: 30px;
             grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+        }
+    }
+
+    @keyframes display {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
         }
     }
 }

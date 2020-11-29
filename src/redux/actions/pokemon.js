@@ -41,6 +41,7 @@ export const fetchGameGenerationData = (url) => async (dispatch) => {
                     type: pokemonActionTypes.FETCH_GAME_DATA_SUCCESS,
                     payload: { ...response.data, pokemon_species: results },
                 });
+                localStorage.setItem('pokemonSpecies', JSON.stringify(results));
             } else {
                 dispatch({
                     type: pokemonActionTypes.FETCH_GAME_DATA_ERROR,
@@ -55,23 +56,39 @@ export const fetchGameGenerationData = (url) => async (dispatch) => {
 };
 
 export const fetchGamesGenerations = () => async (dispatch) => {
-    axios.get(`${baseURL}/generation`)
-        .then((response) => {
-            dispatch({
-                type: pokemonActionTypes.FETCH_POKEMON_GAMES_SUCCESS,
-                payload: response.data.results,
-            });
-        })
-        .catch(() => {
-            dispatch({
-                type: pokemonActionTypes.FETCH_POKEMON_GAMES_ERROR,
-            });
+    const games = localStorage.getItem('pokemonGames');
+    if (games) {
+        dispatch({
+            type: pokemonActionTypes.FETCH_POKEMON_GAMES_SUCCESS,
+            payload: JSON.parse(games),
         });
+    } else {
+        axios.get(`${baseURL}/generation`)
+            .then((response) => {
+                dispatch({
+                    type: pokemonActionTypes.FETCH_POKEMON_GAMES_SUCCESS,
+                    payload: response.data.results,
+                });
+                localStorage.setItem('pokemonGames', JSON.stringify(response.data.results));
+            })
+            .catch(() => {
+                dispatch({
+                    type: pokemonActionTypes.FETCH_POKEMON_GAMES_ERROR,
+                });
+            });
+    }
 };
+
+export const noGameSelected = () => async (dispatch) => {
+    dispatch({
+        type: pokemonActionTypes.NO_GAME_SELECTED,
+    });
+}
 
 export const selectGameGeneration = (game) => async (dispatch) => {
     dispatch({
         type: pokemonActionTypes.SELECT_GAME_GENERATION,
         payload: game,
     });
+    localStorage.setItem('gameSelected', JSON.stringify(game));
 };

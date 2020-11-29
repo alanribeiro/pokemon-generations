@@ -25,6 +25,9 @@ export default (state = INITIAL_STATE, action) => {
         case pokemonActionTypes.FETCH_POKEMON_GAMES_SUCCESS:
             return { ...state, fetchError: { context: '', message: '' }, games: payload };
 
+        case pokemonActionTypes.NO_GAME_SELECTED:
+            return { ...state, fetchError: { context: 'details', message: 'Nenhum jogo foi selecionado, volte para o início e selecione um jogo Pokémon.' } };
+
         case pokemonActionTypes.SELECT_GAME_GENERATION:
             return { ...state, gameSelected: payload };
 

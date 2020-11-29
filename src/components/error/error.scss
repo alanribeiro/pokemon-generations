@@ -1,0 +1,22 @@
+@import '../../assets/utils/styling/mixins.scss';
+@import '../../assets/utils/styling/variables.scss';
+
+.error {
+    @include flexbox(column, center, center);
+    @include setDimensions(100vw, 100vh);
+    @include setLinearGradient(to bottom, $gradientFrom, $gradientTo);
+
+    &__logo {
+        width: 200px;
+        margin-bottom: 20px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__message {
+        text-shadow: 3px 3px $pokemonBlue;
+        @include setTextAttributes($fontBold, 25px, $pokemonYellow);
+    }
+}
