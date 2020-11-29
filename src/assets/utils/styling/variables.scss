@@ -1,5 +1,14 @@
 @import './fonts.scss';
 
+//BREAKPOINTS
+
+$widthBreakpoints: (
+    'xl': 1920px,
+    'lg': 1024px,
+    'md': 750px,
+    'sm': 320px,
+);
+
 //COLORS
 
 $gradientFrom: #47837A;

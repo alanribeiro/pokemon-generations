@@ -83,7 +83,7 @@ export const noGameSelected = () => async (dispatch) => {
     dispatch({
         type: pokemonActionTypes.NO_GAME_SELECTED,
     });
-}
+};
 
 export const selectGameGeneration = (game) => async (dispatch) => {
     dispatch({

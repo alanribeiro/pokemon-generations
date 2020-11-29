@@ -20,6 +20,7 @@
         }
 
         &__title {
+            text-align: center;
             @include setTextAttributes($fontRegular, 16px, #FFF);
         }
     }
@@ -29,7 +30,10 @@
         @include flexbox(column, center, center);
 
         &__data {
-            @include setTextAttributes($fontBold, 22px, $pokemonRed);
+            @include setTextAttributes($fontBold, 16px, $pokemonRed);
+            @include mediaQuery('min', 'md') {
+                font-size: 22px;
+            }
         }
     }
 }

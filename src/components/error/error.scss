@@ -6,17 +6,27 @@
     @include setDimensions(100vw, 100vh);
     @include setLinearGradient(to bottom, $gradientFrom, $gradientTo);
 
-    &__logo {
-        width: 200px;
-        margin-bottom: 20px;
+    &__content {
+        width: 80%;
+        @include flexbox(column, center, center);
 
-        &:hover {
-            cursor: pointer;
+        &__logo {
+            width: 200px;
+            margin-bottom: 20px;
+    
+            &:hover {
+                cursor: pointer;
+            }
         }
-    }
-
-    &__message {
-        text-shadow: 3px 3px $pokemonBlue;
-        @include setTextAttributes($fontBold, 25px, $pokemonYellow);
+    
+        &__message {
+            text-shadow: 3px 3px $pokemonBlue;
+            text-align: center;
+            @include setTextAttributes($fontBold, 18px, $pokemonYellow);
+            @include mediaQuery('min', 'md') {
+                font-size: 22px;
+            }
+    
+        }
     }
 }

@@ -5,6 +5,23 @@
     justify-content: $justify;
 }
 
+@mixin mediaQuery($type, $breakpoint) {
+    @if map_has_key($widthBreakpoints, $breakpoint) {
+        $width: map_get($widthBreakpoints, $breakpoint);
+
+        @if ($type == 'max') {
+            @media only screen and (max-width: $width) {
+                @content;
+            }
+        }
+        @else {
+            @media only screen and (min-width: $width) {
+                @content;
+            }
+        }
+    }
+}
+
 @mixin setDimensions($width, $height) {
     width: $width;
     height: $height;

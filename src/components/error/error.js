@@ -14,8 +14,10 @@ function ErrorMessage(props) {
 
     return (
         <main className="error">
-            <img className="error__logo" src={ pokemonRef } alt="Logo do Pokémon" loading="lazy" onClick={ () => backToHome() } />
-            <span className="error__message">{ message }</span>
+            <div className="error__content">
+                <img className="error__content__logo" src={ pokemonRef } alt="Logo do Pokémon" loading="lazy" onClick={ () => backToHome() } />
+                <span className="error__content__message">{ message }</span>
+            </div>
         </main>
     );
 }

@@ -37,7 +37,8 @@ export default function GameDetails() {
             );
         }
         if (gameSelectedData !== null) {
-            const { name } = gameSelected;
+            const storedGame = localStorage.getItem('gameSelected');
+            const gameName = gameSelected ? gameSelected.name : JSON.parse(storedGame).name;
             const {
                 main_region: { name: regionName },
                 moves,
@@ -49,7 +50,7 @@ export default function GameDetails() {
                 <main className="game-details">
                     <div className="game-details__header">
                         <img className="game-details__header__logo" src={ pokemonRef } alt="Pokémon Logo" loading="lazy" />
-                        <h1 className="game-details__header__title">{ name.toUpperCase() }</h1>
+                        <h1 className="game-details__header__title">{ gameName.toUpperCase() }</h1>
                     </div>
                     <div className="game-details__information">
                         <DetailCard title="region" data={ regionName } />

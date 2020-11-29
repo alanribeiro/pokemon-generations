@@ -14,11 +14,14 @@
     }
 
     &__logo-container {
-        @include flexbox(column, center);
         padding: 20px 0px;
+        @include flexbox(column, center);
 
         &__logo {
             width: 300px;
+            @include mediaQuery('max', 'md') {
+                width: 200px;
+            }
         }
     }
 
@@ -28,7 +31,11 @@
 
         &__title {
             text-shadow: 3px 3px $pokemonBlue;
+            text-align: center;
             @include setTextAttributes($fontBold, 32px, $pokemonYellow);
+            @include mediaQuery('max', 'md') {
+                font-size: 18px;
+            }
         }
     }
 
@@ -38,7 +45,17 @@
         padding: 40px 0px;
         display: grid;
         grid-gap: 40px;
-        grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+        grid-template-columns: 1fr;
+
+        @include mediaQuery('min', 'md') {
+            grid-template-columns: 0.5fr 0.5fr;
+        }
+        @include mediaQuery('min', 'lg') {
+            grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+        }
+        @include mediaQuery('min', 'xl') {
+            width: 60%;
+        }
     }
 
     @keyframes display {

@@ -24,15 +24,31 @@
         &__title {
             text-shadow: 3px 3px $pokemonBlue;
             @include setTextAttributes($fontBold, 32px, $pokemonYellow);
+            @include mediaQuery('max', 'md') {
+                font-size: 18px;
+            }
         }
     }
 
     &__information {
-        width: 80%;
+        width: 90%;
         margin: 40px auto;
         display: grid;
-        grid-gap: 40px;
-        grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+        grid-gap: 15px; 
+        grid-template-columns: 0.5fr 0.5fr;
+        @include mediaQuery('min', 'md') {
+            width: 80%;
+            grid-gap: 20px;
+            grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+        }
+        @include mediaQuery('min', 'lg') {
+            width: 80%;
+            grid-gap: 40px;
+            grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+        }
+        @include mediaQuery('min', 'xl') {
+            width: 60%;
+        }
     }
 
     &__pokemon-list {
@@ -45,15 +61,29 @@
             &__title {
                 text-shadow: 3px 3px $pokemonBlue;
                 @include setTextAttributes($fontBold, 32px, $pokemonYellow);
+                @include mediaQuery('max', 'md') {
+                    font-size: 18px;
+                }
             }
         }
 
         &__content {
-            width: 90%;
+            width: 80%;
             margin: auto;
             display: grid;
             grid-gap: 30px;
-            grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+            grid-template-columns: 1fr;
+            @include mediaQuery('min', 'md') {
+                width: 90%;
+                grid-template-columns: 0.5fr 0.5fr;
+            }
+            @include mediaQuery('min', 'lg') {
+                width: 90%;
+                grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+            }
+            @include mediaQuery('min', 'xl') {
+                width: 70%;
+            }
         }
     }
 
